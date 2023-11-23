@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --font: "Inter";
+    --body-bg: #FBFBFC;
+    --black: #000000;
+    --dark: #333333;
+    --dark-gray: #637381;
+    --gray: #C4CDD5;
+    --light: #EDEDEE;
+    --white: #fff;
+    --red: #FB4A4B;
+    --green: #1ECFBA;
+    --blue: #618DFF;
+    --yellow: #FFDE6B;
+}
+
+$bp-xs: 575px;
+$bp-sm: 767px;
+$bp-md: 991px;
+$bp-lg: 1199px;
+$bp-xl: 1399px;
+$bp-xxl: 1599px;
+
+
+/* mixins */
+@mixin flex($dir: row, $x: center, $y: center, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $x;
+    align-items: $y;
+    flex-wrap: $wrap;
+}
+@mixin no-appearance {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    outline: none;
+}
+@mixin safariFix {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    isolation: isolate;
+    transform: translateZ(0);
+}
+@mixin absBG($z: 1) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: $z;
+}
+@mixin roundedImg($rad, $w) {
+    width: $w;
+    height: $w;
+    border-radius: $rad;
+    object-fit: cover;
+}
+@mixin clamp($count, $line, $strict: false) {
+    display: -webkit-box;
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: $line;
+    @if $strict {
+       height: $line * $count;
+    } @else {
+       max-height: $line * $count;
+    }
+}
+@mixin list {
+    list-style: none;
+    padding-left: 0px;
+}
+@mixin box($pad: 1em) {
+    background-color: #fff;
+    padding: $pad;
+    border-radius: 1em;
+    box-shadow: 0px 4px 60px 0px rgba(4, 6, 15, 0.05);
+}
+@mixin transition($props: all) {
+    transition-duration: 300ms;
+    transition-timing-function: ease-in;
+    transition-property: $props;
+}
+
+
+/* Typography */
+a, a:hover, a:focus, a:active {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, select, input, textarea, button, div, blockquote, cite, figure, figcaption, table, ul, ol, dl, address {
+    line-height: normal;
+    margin-bottom: 0px;
+}
+
+.fs {
+    &-08 {font-size: 0.8em;}
+    &-09 {font-size: 0.9em;}
+    &-10 {font-size: 1em;}
+    &-11 {font-size: 1.1em;}
+    &-12 {font-size: 1.2em;}
+    &-13 {font-size: 1.3em;}
+    &-14 {font-size: 1.4em;}
+    &-15 {font-size: 1.5em;}
+    &-16 {font-size: 1.6em;}
+    &-17 {font-size: 1.7em;}
+    &-18 {font-size: 1.8em;}
+    &-19 {font-size: 1.9em;}
+    &-20 {font-size: 2em;}
+    &-25 {font-size: 2.5em;}
+    &-30 {font-size: 3em;}
+    &-35 {font-size: 3.5em;}
+    &-40 {font-size: 4em;}
+}
+.fw {
+    &-3 {font-weight: 300;}
+    &-4 {font-weight: 400;}
+    &-5 {font-weight: 500;}
+    &-6 {font-weight: 600;}
+    &-7 {font-weight: 700;}
+    &-8 {font-weight: 800;}
+    &-9 {font-weight: 900;}
+}
+
+
+/* Form elements */
+input, textarea {
+    background: var(--body-bg);
+    border: 1px solid var(--gray);
+    border-radius: 0.6em;
+    padding: .5em 1em;
+    width: 100%;
+    line-height: normal;
+    outline: none;
+    display: block;
+    // transition: border-color $transition;
+    &:-moz-placeholder, &::-moz-placeholder,
+    &::-webkit-input-placeholder, &:-ms-input-placeholder, &::-ms-input-placeholder {
+        color: var(--gray);
+        font-weight: 300;
+    }
+    &::placeholder {
+        color: var(--gray);
+        font-weight: 300;
+    }
+    // &:-webkit-autofill,
+    // &:-webkit-autofill:hover, 
+    // &:-webkit-autofill:focus, 
+    // &:-webkit-autofill:active  {
+    //     -webkit-box-shadow: 0 0 0 30px var(--bg) inset !important;
+    //     -webkit-text-fill-color: var(--faded) !important;
+    // }
+}
+button {
+    background: none;
+    border: none;
+    padding: unset;
+    display: block;
+    font-family: inherit;
+    outline: none;
+    color: inherit;
+}
+.btn {
+    @include flex(row, center, center, nowrap);
+    padding: .5em 1em;
+    text-align: center;
+    width: fit-content;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: .6em;
+    @include transition(background-color);
+    &-red {
+        @extend .btn;
+        color: var(--white);
+        background-color: var(--red);
+        &:hover, &:focus {
+            color: var(--white);
+            background-color: var(--red);
+        }
+        &:active {
+            color: var(--white);
+            background-color: var(--red);
+        }
+    }
+}
+.formSearch {
+    flex: 1;
+    position: relative;
+    input {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding-left: 3em;
+    }
+    button {
+        position: absolute;
+        z-index: 10;
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        width: 2em;
+        font-size: 1.5em;
+        color: var(--gray);
+        @include flex();
+    }
+}
+
+body {
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 400;
+    background-color: var(--body-bg);
+}
+
+
+.layout {
+    display: grid;
+    grid-template-columns: 230px auto;
+    grid-template-rows: 70px auto;
+    grid-template-areas: 
+    "head head"
+    "sidebar main";
+    gap: 1em 1.875em;
+    padding: 1em 0em;
+    header {
+        grid-area: head;
+        @include box();
+        @include flex(row, flex-start, stretch, nowrap);
+    }
+    .sidebar {
+        grid-area: sidebar;
+    }
+    main {
+        grid-area: main;
+    }
+}
+
+nav.sidebar {
+    ul {
+        @include list();
+        @include box(0.5em 0em);
+        li {
+            padding: .75em 1.25em;
+        }
+        hr {
+            background-color: var(--light);
+            opacity: 1;
+            border: none;
+            height: 1px;
+            width: 100%;
+            margin: .5em 0em;
+        }
+    }
+    .user {
+        @include flex(row, flex-start, center, nowrap);
+        img {
+            @include roundedImg(.6em, 2.5em);
+            margin-right: .5em;
+        }
+    }
+    .link {
+        @include flex(row, flex-start, center, nowrap);
+        color: var(--dark-gray);
+        @include transition(color);
+        svg {
+            font-size: 1.5em;
+            margin-right: 0.33em;
+            color: var(--gray);
+            @include transition(color);
+        }
+        &:hover {
+            color: var(--blue);
+            svg {
+                color: var(--blue);
+            }
+        }
+    }
+    .devs {
+        font-size: 0.75em;
+        font-weight: 500;
+        color: var(--blue);
+        @include flex(row, flex-start, center, nowrap);
+        @include transition(color);
+        &:hover {
+            color: var(--red);
+        }
+        svg {
+            font-size: 1.7em;
+        }
+    }
+}
