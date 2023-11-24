@@ -74,6 +74,9 @@ $bp-xxl: 1599px;
     list-style: none;
     padding-left: 0px;
 }
+@mixin shadow {
+    box-shadow: 0px 4px 60px 0px rgba(4, 6, 15, 0.05);
+}
 @mixin box($pad: 1em) {
     background-color: #fff;
     padding: $pad;
@@ -98,7 +101,16 @@ h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, selec
     line-height: normal;
     margin-bottom: 0px;
 }
-
+h1 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: .5em;
+}
+h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: .5em;
+}
 .fs {
     &-08 {font-size: 0.8em;}
     &-09 {font-size: 0.9em;}
@@ -127,6 +139,10 @@ h1, h2, h3, h4, h5, h6, p, label, span, a, button, form, fieldset, legend, selec
     &-8 {font-weight: 800;}
     &-9 {font-weight: 900;}
 }
+.green {color: var(--green);}
+.blue {color: var(--blue);}
+.d-gray {color: var(--dark-gray)}
+.gray {color: var(--gray)}
 
 
 /* Form elements */
@@ -166,8 +182,22 @@ button {
     outline: none;
     color: inherit;
 }
+select {
+    @include no-appearance();
+    padding: .5em 1em;
+    border: none;
+    border-radius: .6em;
+    color: var(--black);
+    background-color: var(--white);
+    @include shadow();
+    background-image: url(imgs/chevron-down.svg);
+    background-position: calc(100% - .5em) 50%;
+    background-size: 1.25em;
+    background-repeat: no-repeat;
+    padding-right: 2em;
+}
 .btn {
-    @include flex(row, center, center, nowrap);
+    @include flex();
     padding: .5em 1em;
     text-align: center;
     width: fit-content;
@@ -188,6 +218,73 @@ button {
             background-color: var(--red);
         }
     }
+    &-green {
+        @extend .btn;
+        color: var(--white);
+        background-color: var(--green);
+        &:hover, &:focus {
+            color: var(--white);
+            background-color: var(--green);
+        }
+        &:active {
+            color: var(--white);
+            background-color: var(--green);
+        }
+    }
+    &-white {
+        @extend .btn;
+        color: var(--black);
+        background-color: var(--white);
+        @include shadow();
+        &:hover, &:focus {
+            color: var(--black);
+            background-color: var(--yellow);
+        }
+        &:active {
+            color: var(--blackhite);
+            background-color: var(--yellow);
+        }
+    }
+    &-likes {
+        @extend .btn;
+        color: var(--dark-gray);
+        padding: 0em;
+        font-weight: 400;
+        border-radius: 0em;
+        @include transition(color);
+        svg {font-size: 1.5em;}
+        span {font-size: .9em;}
+        &:hover, &:focus, &:active, &.active {
+            color: var(--red);
+        }
+    }
+    &-comments {
+        @extend .btn;
+        color: var(--dark-gray);
+        padding: 0em;
+        font-weight: 400;
+        border-radius: 0em;
+        @include transition(color);
+        svg {font-size: 1.5em;}
+        span {font-size: .9em;}
+        &:hover, &:focus, &:active, &.active {
+            color: var(--blue);
+        }
+    }
+    &-saves {
+        @extend .btn;
+        color: var(--dark-gray);
+        padding: 0em;
+        font-weight: 400;
+        border-radius: 0em;
+        @include transition(color);
+        svg {font-size: 1.5em;}
+        span {font-size: .9em;}
+        &:hover, &:focus, &:active, &.active {
+            color: var(--green);
+        }
+    }
+    
 }
 .formSearch {
     flex: 1;
@@ -211,6 +308,8 @@ button {
     }
 }
 
+.flex-1 {flex:1;}
+
 body {
     font-family: var(--font);
     font-size: 16px;
@@ -218,8 +317,8 @@ body {
     background-color: var(--body-bg);
 }
 
-
 .layout {
+    height: 100vh;
     display: grid;
     grid-template-columns: 230px auto;
     grid-template-rows: 70px auto;
@@ -238,6 +337,9 @@ body {
     }
     main {
         grid-area: main;
+        overflow-y: auto;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
     }
 }
 
@@ -255,13 +357,6 @@ nav.sidebar {
             height: 1px;
             width: 100%;
             margin: .5em 0em;
-        }
-    }
-    .user {
-        @include flex(row, flex-start, center, nowrap);
-        img {
-            @include roundedImg(.6em, 2.5em);
-            margin-right: .5em;
         }
     }
     .link {
@@ -294,4 +389,63 @@ nav.sidebar {
             font-size: 1.7em;
         }
     }
+}
+.user {
+    @include flex(row, flex-start, center, nowrap);
+    img {
+        @include roundedImg(.6em, 2.5em);
+        margin-right: .5em;
+    }
+}
+
+.posts-list {
+    @include list();
+    li {
+        &:not(:first-child){
+            margin-top: 1.5em;
+        }
+    }
+}
+.post {
+    @include box(0px);
+    &-img {
+        width: 100%;
+        height: 440px;
+        object-fit: cover;
+    }
+    ul {
+        @include list();
+        @include flex();
+        li {
+            &:not(:first-child){
+                margin-left: 2em;
+            }
+        }
+    }
+}
+
+
+.scroll-top {
+    position: fixed;
+    z-index: 100;
+    bottom: 2em;
+    right: 2em;
+    background-color: var(--white);
+    color: var(--blue);
+    @include shadow();
+    border-radius: 2em;
+    padding: .35em .5em .35em 1em;
+    width: fit-content;
+    @include flex();
+    opacity: 1;
+    transform: scale(1);
+    svg {font-size: 1.5em;}
+    span {
+        font-size: .9em;
+        font-weight: 500;
+    }
+    // &.hide {
+    //     opacity: 0;
+    //     transform: scale(.5);
+    // }
 }
