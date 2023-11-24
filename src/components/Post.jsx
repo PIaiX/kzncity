@@ -15,7 +15,7 @@ const Post = () => {
             <div className="d-flex justify-content-between align-items-center mb-3">
             <div className='d-flex align-items-center'>
                 <div className='user'>
-                    <img src="/imgs/photo.jpg" alt="Temporibus" />
+                    <img src="imgs/photo.jpg" alt="Temporibus" />
                     <p>Temporibus</p>
                 </div>
                 <span className='green mx-2'>●</span>
@@ -47,7 +47,7 @@ const Post = () => {
             <h2>Aeleniti atque corrupti quos dolores et quas molestias excepturi sint</h2>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
         </div>
-        <img src="/imgs/img0.jpg" alt="" className='post-img'/>
+        <img src="imgs/img0.jpg" alt="" className='post-img'/>
         <div className="d-flex justify-content-between align-items-center px-3 pt-2 pb-3">
             <ul>
             <li>

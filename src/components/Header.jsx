@@ -5,7 +5,7 @@ import IconPlus from './svgs/IconPlus'
 const Header = () => {
   return (
     <header>
-      <img src="/imgs/logo.svg" alt="KZN.city" />
+      <img src="imgs/logo.svg" alt="KZN.city" />
       <form action="" className='formSearch ms-5'>
         <button type='submit'>
           <IconSearch/>

@@ -27,7 +27,7 @@ const Home = () => {
       </Col>
       <Col md={4}>
         <aside>
-          <img src="/imgs/img.jpg" alt="" className='w-100'/>
+          <img src="imgs/img.jpg" alt="" className='w-100'/>
         </aside>
       </Col>
     </Row>

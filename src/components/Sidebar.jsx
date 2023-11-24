@@ -12,7 +12,7 @@ const Sidebar = () => {
         <ul className='mb-4'>
             <li>
                 <div className='user'>
-                    <img src="/imgs/photo.jpg" alt="" />
+                    <img src="imgs/photo.jpg" alt="" />
                     <p>Александер Родионович</p>
                 </div>
             </li>
