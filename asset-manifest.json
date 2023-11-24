@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kzncity/static/css/main.fae46195.css",
-    "main.js": "/kzncity/static/js/main.ab3c1182.js",
+    "main.js": "/kzncity/static/js/main.92fdffd5.js",
     "index.html": "/kzncity/index.html",
     "static/media/chevron-down.svg": "/kzncity/static/media/chevron-down.b752a2d4062e758145cd.svg",
     "main.fae46195.css.map": "/kzncity/static/css/main.fae46195.css.map",
-    "main.ab3c1182.js.map": "/kzncity/static/js/main.ab3c1182.js.map"
+    "main.92fdffd5.js.map": "/kzncity/static/js/main.92fdffd5.js.map"
   },
   "entrypoints": [
     "static/css/main.fae46195.css",
-    "static/js/main.ab3c1182.js"
+    "static/js/main.92fdffd5.js"
   ]
 }
