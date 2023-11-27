@@ -1,32 +1,30 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import IconAddUser from './svgs/IconAddUser';
 import IconBookmark from './svgs/IconBookmark';
 import IconFire from './svgs/IconFire';
 import PlaixIcon from './svgs/PlaixIcon';
 import Plaix from './svgs/Plaix';
+import UserCard from './utils/UserCard';
 
 const Sidebar = () => {
   return (
     <nav className="sidebar">
         <ul className='mb-4'>
             <li>
-                <div className='user'>
-                    <img src="imgs/photo.jpg" alt="" />
-                    <p>Александер Родионович</p>
-                </div>
+                <UserCard photo='imgs/photo.jpg' name='Александер Родионович'/>
             </li>
             <li>
-                <Link to="/" className='link'>
+                <NavLink to="/account/subscriptions" className='link'>
                     <IconAddUser/>
                     <span>Подписки</span>
-                </Link>
+                </NavLink>
             </li>
             <li>
-                <Link to="/" className='link'>
+                <NavLink to="/account/bookmarks" className='link'>
                     <IconBookmark/>
                     <span>Закладки</span>
-                </Link>
+                </NavLink>
             </li>
         </ul>
         <ul className='mb-4'>
@@ -87,7 +85,7 @@ const Sidebar = () => {
             </li>
             <hr />
             <li>
-                <a href="" className='devs'>
+                <a href="https://plaix.ru/" target='_blank' rel="noreferrer" className='devs'>
                     <PlaixIcon/>
                     <span className='mx-2'>Создано в</span>
                     <Plaix/>

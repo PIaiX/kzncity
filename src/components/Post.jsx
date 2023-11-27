@@ -7,6 +7,7 @@ import IconChat from '../components/svgs/IconChat';
 import IconBookmark from '../components/svgs/IconBookmark';
 import IconClock from '../components/svgs/IconClock';
 import IconEye from '../components/svgs/IconEye';
+import UserCard from './utils/UserCard';
 
 const Post = () => {
   return (
@@ -14,10 +15,7 @@ const Post = () => {
         <div className="p-3">
             <div className="d-flex justify-content-between align-items-center mb-3">
             <div className='d-flex align-items-center'>
-                <div className='user'>
-                    <img src="imgs/photo.jpg" alt="Temporibus" />
-                    <p>Temporibus</p>
-                </div>
+                <UserCard name='Temporibus'/>
                 <span className='green mx-2'>●</span>
                 <span className='fs-09 d-gray me-2'>11:58</span>
                 <span className='fs-09 d-gray'>фев 2023</span>
@@ -31,14 +29,13 @@ const Post = () => {
                     </button>
                 </li>
                 <li>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="none" className='gray'>
-                        <IconDots className="fs-15"/>
+                    <Dropdown align="end">
+                        <Dropdown.Toggle variant="none">
+                            <IconDots className="fs-15"/>
                         </Dropdown.Toggle>
-
                         <Dropdown.Menu>
-                        <Dropdown.Item as="button">Поделиться</Dropdown.Item>
-                        <Dropdown.Item as="button">Пожаловаться</Dropdown.Item>
+                            <Dropdown.Item as="button">Поделиться</Dropdown.Item>
+                            <Dropdown.Item as="button">Пожаловаться</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </li>

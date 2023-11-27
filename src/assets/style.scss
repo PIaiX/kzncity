@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
+// "homepage": "https://PIaiX.github.io/kzncity",
 :root {
     --font: "Inter";
     --body-bg: #FBFBFC;
@@ -82,6 +82,7 @@ $bp-xxl: 1599px;
     padding: $pad;
     border-radius: 1em;
     box-shadow: 0px 4px 60px 0px rgba(4, 6, 15, 0.05);
+    @include safariFix();
 }
 @mixin transition($props: all) {
     transition-duration: 300ms;
@@ -110,6 +111,12 @@ h2 {
     font-size: 1.25em;
     font-weight: 600;
     margin-bottom: .5em;
+}
+h6 {
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--dark-gray);
+    margin-bottom: 0px;
 }
 .fs {
     &-08 {font-size: 0.8em;}
@@ -205,6 +212,10 @@ select {
     font-weight: 500;
     border-radius: .6em;
     @include transition(background-color);
+    &-none {
+        padding: 0px;
+        border: none;
+    }
     &-red {
         @extend .btn;
         color: var(--white);
@@ -229,6 +240,25 @@ select {
         &:active {
             color: var(--white);
             background-color: var(--green);
+        }
+    }
+    &-blue {
+        @extend .btn;
+        color: var(--white);
+        background-color: var(--blue);
+        &:hover, &:focus, &:active, &.active {
+            color: var(--white);
+            background-color: var(--blue);
+        }
+    }
+    &-border-blue {
+        @extend .btn;
+        color: var(--blue);
+        background-color: var(--white);
+        border: 1px solid var(--blue);
+        &:hover, &:focus, &:active, &.active {
+            color: var(--white);
+            background-color: var(--blue);
         }
     }
     &-white {
@@ -309,6 +339,53 @@ select {
 }
 
 .flex-1 {flex:1;}
+.box {
+    @include box(1em);
+}
+.link-return {
+    cursor: pointer;
+    @include flex(row, flex-start, center, nowrap);
+    svg {
+        color: var(--gray);
+        font-size: 1.5em;
+        @include transition(color);
+    }
+    span {
+        color: var(--dark-gray);
+        margin-left: .25em;
+        @include transition(color);
+    }
+    &:hover {
+        svg {
+            color: var(--blue);
+        }
+        span {
+            color: var(--blue);
+        }
+    }
+}
+.dropdown {
+    &-toggle {
+        color: var(--gray);
+        @include transition(color);
+        &:hover {
+            color: var(--dark-gray);
+        }
+        &::after {
+            content: none;
+        }
+    }
+    &-menu {
+        border: none;
+        border-radius: 1em;
+        box-shadow: -5px 10px 30px 0px rgba(4, 6, 15, 0.10);
+    }
+    &-item {
+        --bs-dropdown-link-hover-bg: var(--light);
+        --bs-dropdown-link-active-bg: var(--green);
+    }
+}
+
 
 body {
     font-family: var(--font);
@@ -369,7 +446,7 @@ nav.sidebar {
             color: var(--gray);
             @include transition(color);
         }
-        &:hover {
+        &:hover, &:focus, &:active, &.active {
             color: var(--blue);
             svg {
                 color: var(--blue);
@@ -400,7 +477,7 @@ nav.sidebar {
 
 .posts-list {
     @include list();
-    li {
+    &>li {
         &:not(:first-child){
             margin-top: 1.5em;
         }
@@ -425,6 +502,22 @@ nav.sidebar {
 }
 
 
+.list {
+    @include list();
+    @include box(0px);
+    li {
+       padding: 1em 1.25em;
+       @include flex(row, space-between, center, nowrap);
+       &:not(:last-child){
+        border-bottom: 1px solid var(--light);
+       } 
+    }
+    h6 {
+        padding: 1em 1.25em;
+    }
+}
+
+
 .scroll-top {
     position: fixed;
     z-index: 100;
@@ -439,10 +532,14 @@ nav.sidebar {
     @include flex();
     opacity: 1;
     transform: scale(1);
+    @include transition(color);
     svg {font-size: 1.5em;}
     span {
         font-size: .9em;
         font-weight: 500;
+    }
+    &:hover {
+        color: var(--green);
     }
     // &.hide {
     //     opacity: 0;
