@@ -8,6 +8,7 @@ import IconBookmark from '../components/svgs/IconBookmark';
 import IconClock from '../components/svgs/IconClock';
 import IconEye from '../components/svgs/IconEye';
 import UserCard from './utils/UserCard';
+import AddToBookmarks from './utils/AddToBookmarks';
 
 const Post = () => {
   return (
@@ -47,33 +48,31 @@ const Post = () => {
         <img src="imgs/img0.jpg" alt="" className='post-img'/>
         <div className="d-flex justify-content-between align-items-center px-3 pt-2 pb-3">
             <ul>
-            <li>
-                <button type='button' className='btn-likes'>
-                <IconHeart/>
-                <span className='ms-1'>5 582</span>
-                </button>
-            </li>
-            <li>
-                <button type='button' className='btn-comments'>
-                <IconChat/>
-                <span className='ms-1'>5</span>
-                </button>
-            </li>
-            <li>
-                <button type='button' className='btn-saves active'>
-                <IconBookmark/>
-                </button>
-            </li>
+                <li>
+                    <button type='button' className='btn-likes'>
+                        <IconHeart/>
+                        <span className='ms-1'>5 582</span>
+                    </button>
+                </li>
+                <li>
+                    <button type='button' className='btn-comments'>
+                        <IconChat/>
+                        <span className='ms-1'>5</span>
+                    </button>
+                </li>
+                <li>
+                    <AddToBookmarks/>
+                </li>
             </ul>
             <ul className='d-gray'>
-            <li>
-                <IconClock className="fs-15"/>
-                <span className='fs-09 ms-1'>5 минут</span>
-            </li>
-            <li>
-                <IconEye className="fs-15"/>
-                <span className='fs-09 ms-1'>21 635</span>
-            </li>
+                <li>
+                    <IconClock className="fs-15"/>
+                    <span className='fs-09 ms-1'>5 минут</span>
+                </li>
+                <li>
+                    <IconEye className="fs-15"/>
+                    <span className='fs-09 ms-1'>21 635</span>
+                </li>
             </ul>
         </div>
     </div>

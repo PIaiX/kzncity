@@ -69,17 +69,17 @@ const Sidebar = () => {
         </ul>
         <ul className='mb-4'>
             <li>
-                <Link to="/" className='link'>
+                <Link to="/rules" className='link'>
                     <span>Правила портала</span>
                 </Link>
             </li>
             <li>
-                <Link to="/" className='link'>
+                <Link to="/faq" className='link'>
                     <span>Помощь</span>
                 </Link>
             </li>
             <li>
-                <Link to="/" className='link'>
+                <Link to="/contacts" className='link'>
                     <span>Контакты</span>
                 </Link>
             </li>
