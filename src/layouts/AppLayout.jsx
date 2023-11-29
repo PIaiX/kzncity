@@ -17,7 +17,6 @@ const AppLayout = () => {
                     <ScrollToTop/>
                 </main>
             </div>
-            
         </Container>
     )
 }

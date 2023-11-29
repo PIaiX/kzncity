@@ -281,6 +281,17 @@ select {
         color: var(--black);
         background-color: var(--white);
         @include shadow();
+        &:hover, &:focus, &:active, &.active {
+            color: var(--black);
+            background-color: var(--light);
+        }
+    }
+    &-gray {
+        @extend .btn;
+        color: var(--black);
+        background-color: var(--light);
+        @include shadow();
+        font-weight: 400;
         &:hover, &:focus {
             color: var(--black);
             background-color: var(--yellow);
@@ -298,8 +309,8 @@ select {
         border-radius: 0em;
         @include transition(color);
         svg {font-size: 1.5em;}
-        span {font-size: .9em;}
-        &:hover, &:focus, &:active, &.active {
+        &:hover, &:focus {cursor: pointer;}
+        &.active {
             color: var(--red);
         }
     }
@@ -311,7 +322,6 @@ select {
         border-radius: 0em;
         @include transition(color);
         svg {font-size: 1.5em;}
-        span {font-size: .9em;}
         &:hover, &:focus, &:active, &.active {
             color: var(--blue);
         }
@@ -324,13 +334,11 @@ select {
         border-radius: 0em;
         @include transition(color);
         svg {font-size: 1.5em;}
-        span {font-size: .9em;}
         &:hover, &:focus {cursor: pointer;}
         &.active {
             color: var(--green);
         }
     }
-    
 }
 .formSearch {
     flex: 1;
@@ -354,6 +362,7 @@ select {
     }
 }
 
+.br-1 {border-radius: 1em;}
 .flex-1 {flex:1;}
 .box {
     @include box(1em);
@@ -433,6 +442,35 @@ body {
         overflow-y: auto;
         padding-right: calc(var(--bs-gutter-x) * .5);
         padding-left: calc(var(--bs-gutter-x) * .5);
+        position: relative;
+        .scroll-top {
+            position: absolute;
+            z-index: 100;
+            bottom: 2em;
+            right: 2em;
+            background-color: var(--white);
+            color: var(--blue);
+            box-shadow: -5px 10px 30px 0px rgba(4, 6, 15, 0.10);
+            border-radius: 2em;
+            padding: .35em .5em .35em 1em;
+            width: fit-content;
+            @include flex();
+            opacity: 1;
+            transform: scale(1);
+            @include transition(color);
+            svg {font-size: 1.5em;}
+            span {
+                font-size: .9em;
+                font-weight: 500;
+            }
+            &:hover {
+                color: var(--green);
+            }
+            // &.hide {
+            //     opacity: 0;
+            //     transform: scale(.5);
+            // }
+        }
     }
 }
 
@@ -510,6 +548,7 @@ nav.sidebar {
         @include list();
         @include flex();
         li {
+            @include flex();
             &:not(:first-child){
                 margin-left: 2em;
             }
@@ -611,32 +650,50 @@ nav.sidebar {
     }
 }
 
+.sec-404 {
+    @include box(5em);
+    ul {
+        @include list();
+        @include flex(row, flex-start, center, wrap);
+        li {
+            margin-right: .7em;
+            margin-bottom: .7em;
+        }
+    }
+}
 
-.scroll-top {
-    position: fixed;
-    z-index: 100;
-    bottom: 2em;
-    right: 2em;
-    background-color: var(--white);
-    color: var(--blue);
-    @include shadow();
-    border-radius: 2em;
-    padding: .35em .5em .35em 1em;
-    width: fit-content;
-    @include flex();
-    opacity: 1;
-    transform: scale(1);
-    @include transition(color);
-    svg {font-size: 1.5em;}
-    span {
-        font-size: .9em;
-        font-weight: 500;
+.userPage {
+    &-cover {
+        height: 200px;
     }
-    &:hover {
-        color: var(--green);
+    &-info {
+        
+        @include box(1em 1.25em);
+        &-top {
+            @include flex(row, flex-start, baseline, nowrap);
+            img {
+                @include roundedImg(1em, 100px);
+                margin-right: 1em;
+                margin-top: -75px;
+            }
+            h2 {
+                flex: 1;
+                margin-bottom: 0px;
+            }
+            button {
+                font-size: 1.5em;
+                margin-left: 0.5em;
+            }
+        }
+        
     }
-    // &.hide {
-    //     opacity: 0;
-    //     transform: scale(.5);
-    // }
+    &-btns {
+        @include flex(row, space-between, stretch, nowrap);
+        margin: 1.5em 0em;
+        button {
+            &:not(:last-child){
+                margin-right: .6em;
+            }
+        }
+    }
 }

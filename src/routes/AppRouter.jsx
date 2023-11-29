@@ -7,6 +7,7 @@ import Subscriptions from '../pages/account/Subscriptions'
 import Bookmarks from '../pages/account/Bookmarks'
 import Faq from '../pages/Faq'
 import Rules from '../pages/Rules'
+import Profile from '../pages/account/Profile'
 
 const router = createHashRouter(
     createRoutesFromElements(
@@ -14,6 +15,7 @@ const router = createHashRouter(
             <Route index element={<Home />}/>
             <Route path="account/subscriptions" element={<Subscriptions/>}/>
             <Route path="account/bookmarks" element={<Bookmarks/>}/>
+            <Route path="account/profile" element={<Profile/>}/>
             <Route path="faq" element={<Faq/>}/>
             <Route path="rules" element={<Rules/>}/>
             <Route path="*" element={<NotFound />} />

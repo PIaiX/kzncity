@@ -12,7 +12,7 @@ const Sidebar = () => {
     <nav className="sidebar">
         <ul className='mb-4'>
             <li>
-                <UserCard photo='imgs/photo.jpg' name='Александер Родионович'/>
+                <UserCard link={'/account/profile'} photo='imgs/photo.jpg' name='Александер Родионович'/>
             </li>
             <li>
                 <NavLink to="/account/subscriptions" className='link'>
