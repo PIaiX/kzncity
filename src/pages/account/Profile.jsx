@@ -9,10 +9,10 @@ import IconDots from '../../components/svgs/IconDots';
 import IconPen from '../../components/svgs/IconPen';
 import Post from '../../components/Post';
 import AsidePromo from '../../components/AsidePromo';
+import UserCard from '../../components/utils/UserCard';
 
 const Profile = () => {
-    const [isAdded, setIsAdded] = useState(false);
-    const [key, setKey] = useState('home');
+    const [key, setKey] = useState('Subscriptions');
 
     return (
         <section className='userPage'>
@@ -60,13 +60,53 @@ const Profile = () => {
                             id="controlled-tab-example"
                             activeKey={key}
                             onSelect={(k) => setKey(k)}
-                            className="mb-3"
                             >
-                            <Tab eventKey="home" title="Подписки">
-                                Tab content for Home
+                            <Tab eventKey="Subscriptions" title="Подписки">
+                                <ul className="userPage-subscriptions">
+                                    <li>
+                                        <UserCard/>
+                                    </li>
+                                    <li>
+                                        <UserCard/>
+                                    </li>
+                                    <li>
+                                        <UserCard/>
+                                    </li>
+                                </ul>
                             </Tab>
-                            <Tab eventKey="profile" title="Подписчики">
-                                Tab content for Profile
+                            <Tab eventKey="Subscribers" title="Подписчики">
+                                <ul className="userPage-subscribers">
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                    <li>
+                                        <UserCard notext={true}/>
+                                    </li>
+                                </ul>
                             </Tab>
                         </Tabs>
                     </div>

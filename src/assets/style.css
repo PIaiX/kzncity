@@ -437,6 +437,11 @@ select {
   --bs-dropdown-link-active-bg: var(--green);
 }
 
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1250px;
+  }
+}
 body {
   font-family: var(--font);
   font-size: 16px;
@@ -594,7 +599,6 @@ nav.sidebar .devs svg {
   border-radius: 0.6em;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-right: 0.5em;
 }
 
 .posts-list {
@@ -814,4 +818,22 @@ nav.sidebar .devs svg {
 }
 .userPage-btns button:not(:last-child) {
   margin-right: 0.6em;
+}
+.userPage-subscriptions {
+  list-style: none;
+  padding-left: 0px;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 0.9em;
+}
+.userPage-subscribers {
+  list-style: none;
+  padding-left: 0px;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  gap: 0.9em;
 }/*# sourceMappingURL=style.css.map */
